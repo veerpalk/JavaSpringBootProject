@@ -1,0 +1,16 @@
+package com.sapient.metro.system.junit.test;
+
+import static org.junit.Assert.assertEquals;
+
+public class Test {
+
+	
+	public class TestLogic {  
+		  
+		@org.junit.Test  
+	    public void testFindMax(){  
+//	        assertEquals(expected, actual);(4,Calculation.findMax(new int[]{1,3,4,2}));  
+//	        assertEquals(-1,Calculation.findMax(new int[]{-12,-1,-3,-4,-2}));  
+	    }  
+}
+}

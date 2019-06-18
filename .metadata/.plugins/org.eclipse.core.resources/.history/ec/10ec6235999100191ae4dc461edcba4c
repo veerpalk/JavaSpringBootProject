@@ -1,0 +1,29 @@
+package com.metro.system;
+
+public class DemoSmartCard {
+	
+	private String cardNo;
+	private static int cardBalance=20;
+	private final int MIN_BAL=5;
+	private String day;
+	private String fromMetroStation;
+	private String toMetroStation;
+
+	public DemoSmartCard(String cardNo,String toMetroStation,String day)
+	{
+		this.cardNo=cardNo;
+		this.toMetroStation=toMetroStation;
+		this.day=day;
+	}
+	
+	public void calFair(int noOfStationsTravelled ,String day)
+	{
+		double fare= (FairMapping.fairMap.get(day)*noOfStationsTravelled);
+		System.out.println(getCardBalance()+"-"+fare+"=");
+	}
+
+	private String getCardBalance() {
+		return this.cardBalance;
+	}
+
+}

@@ -1,0 +1,15 @@
+package com.metro.system.jUnit.TestCase;
+
+import com.metro.system.DemoCardSwipeInCommand;
+import com.metro.system.DemoCardSwipeOutCommand;
+import com.metro.system.DemoSmartCard;
+import com.metro.system.MetroStation;
+
+public class SwipeOutFairCalculationTestCase {
+	DemoSmartCard smartCard=new DemoSmartCard("101","A1","weekday");
+	
+	DemoCardSwipeInCommand cardSwipeIn=new DemoCardSwipeInCommand(smartCard);
+	DemoCardSwipeOutCommand cardSwipeOut=new DemoCardSwipeOutCommand(smartCard,2);
+	MetroStation metro=new MetroStation();
+
+}

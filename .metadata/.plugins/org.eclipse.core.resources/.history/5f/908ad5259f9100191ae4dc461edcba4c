@@ -1,0 +1,15 @@
+package com.metro.system;
+
+public class DemoCardSwipeInCommand implements Command {
+
+	private DemoSmartCard smartCard;
+	@Override
+	public void execute() throws Exception {
+		System.out.print("------SWIPE-IN CARD----------");
+		Thread.sleep(2000);
+		System.out.print("Card Balance is"+smartCard.getCardBalance()+"Start Staion"+
+		smartCard.getStartMetroStation()+"Day of year"+smartCard.getDay());
+		
+	}
+
+}

@@ -1,0 +1,12 @@
+package com.metro.system;
+
+public class DemoCardSwipeInCommand implements Command {
+
+	@Override
+	public void execute() throws Exception {
+		System.out.print("------SWIPE-IN CARD----------");
+		
+		
+	}
+
+}

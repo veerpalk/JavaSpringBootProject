@@ -1,0 +1,11 @@
+package com.metro.system;
+
+public class MetroMain {
+	
+	public static void main(String[] args) {
+		
+		DemoSmartCard=new DemoSmartCard("101","A1","weekday");
+		
+	}
+
+}

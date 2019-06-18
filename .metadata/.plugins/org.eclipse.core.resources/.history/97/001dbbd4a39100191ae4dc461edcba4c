@@ -1,0 +1,17 @@
+package com.metro.system;
+
+public class MetroStation  implements Command{
+
+	private Command  command;
+	public MetroStation(Command command)
+	{
+		this.command=command;
+	}
+	@Override
+	public void execute() throws Exception {
+		
+		command.execute();
+	}
+	
+
+}

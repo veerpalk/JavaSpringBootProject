@@ -1,0 +1,20 @@
+package com.metro.system;
+
+public class DemoCardSwipeOutCommand implements Command {
+
+	private DemoSmartCard smartcard;
+	private int noOfStationTravelled;
+	public DemoCardSwipeOutCommand(DemoSmartCard card,int no)
+	{
+		this.smartcard=card;
+		this.noOfStationTravelled=no;
+	}
+	@Override
+	public void execute() throws Exception {
+		System.out.println("----Card swipe Out-------");
+		System.out.print("Travelled from"+smartcard.getStartMetroStation()+"to"+smartcard.getEndMetroStation()+
+				"on"+smartcard.getDay()+);
+	}
+	
+
+}

@@ -1,0 +1,17 @@
+package com.metro.system;
+
+public class MetroStation{
+
+	private Command  command;
+	public void setCommand(Command command)
+	{
+		this.command=command;
+	}
+	
+	public void swipeCard() {
+		
+		command.execute();
+	}
+	
+
+}

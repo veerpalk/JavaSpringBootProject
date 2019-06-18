@@ -1,0 +1,65 @@
+package com.metro.system.jUnit.TestCase;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+
+import org.junit.Test;
+
+import com.metro.system.DemoCardSwipeInCommand;
+import com.metro.system.DemoCardSwipeOutCommand;
+import com.metro.system.DemoSmartCard;
+import com.metro.system.FairMapping;
+import com.metro.system.MetroStation;
+
+
+public class SwipeOutFairCalculationTestCase {
+	DemoSmartCard smartCard=new DemoSmartCard("101","A1","weekday");
+	
+	DemoCardSwipeInCommand cardSwipeIn=new DemoCardSwipeInCommand(smartCard);
+	DemoCardSwipeOutCommand cardSwipeOut=new DemoCardSwipeOutCommand(smartCard,2);
+	MetroStation metro=new MetroStation();
+
+	//Test1
+	//to calculate if correctFair is calculated
+	@Test
+	public void testFareCalculation()
+	{
+	metro.setCommand(cardSwipeIn);
+	try {
+	metro.swipeCard();
+	}catch(Exception e ) {e.printStackTrace();}
+	
+	metro.setCommand(cardSwipeOut);
+	try {
+		metro.swipeCard();
+		}catch(Exception e ) {e.printStackTrace();}
+	
+	assertEquals(6,smartCard.getCardBalance());
+	}
+	
+	//Test2
+	//To check the day validation 
+	@Test
+	public void TestdayValidation()
+	{
+		metro.setCommand(cardSwipeOut);
+		metro.swipeCard();
+		assertEquals(7.0,FairMapping.fairMap.get(smartCard.getDay()));
+	}
+	
+	
+	//Test3
+	//to check if low balance at exit throws exception
+	  @Test(expected = NullPointerException.class)
+	   public void testPrintMessage() throws Exception 
+	    {
+		   cardSwipeOut=new DemoCardSwipeOutCommand(smartCard,5);
+		   metro.setCommand(cardSwipeOut);
+		   metro.swipeCard();
+		}
+			
+	   
+	
+	
+	}
+

@@ -1,0 +1,24 @@
+package com.metro.system;
+
+
+public class DemoCardSwipeOutCommand implements Command {
+
+	private DemoSmartCard smartcard;
+	private int noOfStationTravelled;
+	public DemoCardSwipeOutCommand(DemoSmartCard card,int no)
+	{
+		this.smartcard=card;
+		this.noOfStationTravelled=no;
+	}
+	@Override
+	public void execute() throws Exception {
+		System.out.println("----Card swipe Out-------");
+		System.out.println("Swipe Out Station"+smartcard.getEndMetroStation()+" "+ noOfStationTravelled +
+				", InitialCardBalance="+smartcard.getCardBalance() + ", Day = " + smartcard.getDay());
+		Thread.sleep(1000);
+		System.out.println("Fare per station = " + FairMapping.fairMap.get(smartcard.getDay()));
+		Thread.sleep(1000);
+	}
+	
+
+}
